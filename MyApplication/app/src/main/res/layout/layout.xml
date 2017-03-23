@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autoWrap="http://schemas.android.com/apk/res/com.example.fish.myapplication"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.fish.myapplication.TagTextView
+            android:id="@+id/tagTextView"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_height="200dp"/>
+
+        <com.example.fish.myapplication.AutoWrapLayout
+            android:id="@+id/autoWrapLayout"
+            android:layout_below="@id/tagTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            autoWrap:horizontalInterval="10dp"
+            autoWrap:verticalInterval="20dp"
+            />
+
+    </RelativeLayout>
+</ScrollView>

@@ -3,8 +3,10 @@ package com.example.fish.myapplication;
 import java.util.Hashtable;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +25,22 @@ public class AutoWrapLayout extends ViewGroup {
 	private int mGravity = Gravity.LEFT;
 
 	public AutoWrapLayout(Context context) {
-		super(context);
+		this(context, null);
 	}
 
 	public AutoWrapLayout(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		//获在主布局文件中设置的内容
+		String namespace="http://schemas.android.com/apk/res/com.example.fish";
+
+		/** ---------------------- 获取初始值 ------------------------ **/
+		TypedArray a = context.obtainStyledAttributes(attrs,
+				R.styleable.AutoWrapLayout);
+		setHorizontalInterval(a.getDimensionPixelOffset(R.styleable.AutoWrapLayout_horizontalInterval, 0));
+		setVerticalInterval(a.getDimensionPixelOffset(R.styleable.AutoWrapLayout_verticalInterval, 0));
+		setIsLineFeed(a.getBoolean(R.styleable.AutoWrapLayout_isLineFeed, true));
+		a.recycle();
+		/** ---------------------- 获取初始值 ------------------------ **/
 	}
 
 	@Override
